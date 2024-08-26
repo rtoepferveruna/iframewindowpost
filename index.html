@@ -11,6 +11,7 @@
     <a id="veruna_button">Click to Post Message to All Origins</a>
     <script type="text/javascript">
         var anchorLink = document.getElementById('veruna_button').addEventListener("click", function(event) {
+          window.parent.postMessage("This is a message from child", "*");
           window.postMessage("This is a message", "*");
         });        
     </script>
