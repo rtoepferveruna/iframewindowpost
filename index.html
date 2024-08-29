@@ -17,6 +17,7 @@
           const urlParams = new URLSearchParams(queryString);
             
           var emailJson = {
+            "action": "showEmailComposer",
             "username": urlParams.get('username'),
             "ObjectId": urlParams.get('ObjectId'),
             "ObjectType": urlParams.get('ObjectType'),
