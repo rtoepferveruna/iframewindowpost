@@ -8,9 +8,29 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <a id="veruna_button">Click to Post Message to All Origins</a>
+    <h2>Simulated VerunaDocs Webpage</h2>
+    <button id="veruna_button">Click to Open Email</button>
     <script type="text/javascript">
-        var anchorLink = document.getElementById('veruna_button').addEventListener("click", function(event) {
+          var anchorLink = document.getElementById('veruna_button').addEventListener("click", function(event) {
+
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+            
+          var emailJson = {
+            "username": urlParams.get('username'),
+            "ObjectId": urlParams.get('ObjectId'),
+            "ObjectType": urlParams.get('ObjectType'),
+            "AccountName": urlParams.get('AccountName'),
+            "AccountId": urlParams.get('AccountId'),
+            "SessionId": "dummyParam",
+            "OrgId": urlParams.get('OrgId'),
+            "SFTheme": "Theme3",
+            "selectedFileIds": [
+              "123456789",
+              "234567890"
+            ]
+          };
+          
           window.parent.postMessage("This is a message from child", "*");
           window.postMessage("This is a message", "*");
         });        
